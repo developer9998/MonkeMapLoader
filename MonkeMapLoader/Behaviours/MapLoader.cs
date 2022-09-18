@@ -510,6 +510,9 @@ namespace VmodMonkeMapLoader.Behaviours
                 Object.DontDestroyOnLoad(_globalData.BigTreeTeleportToMap);
                 _globalData.BigTreeTeleportToMap.transform.position += new Vector3(0, -0.05f, 2.4f);
                 _globalData.BigTreeTeleportToMap.transform.Rotate(new Vector3(0, 20, 0));
+
+                _globalData.BigTreeTeleportToMap.transform.Find("Innewr").gameObject.AddComponent<GorillaSurfaceOverride>().overrideIndex = 0;
+                _globalData.BigTreeTeleportToMap.transform.Find("Quad").gameObject.AddComponent<GorillaSurfaceOverride>().overrideIndex = 0;
             }
 
 
