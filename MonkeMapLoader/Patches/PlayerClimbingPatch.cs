@@ -16,13 +16,16 @@ namespace VmodMonkeMapLoader.Patches
             if (surface != null)
             {
                 __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>();
-                __result = surface.slipPercentage;
-
                 SurfaceClimbSettings surfaceClimbSettings = raycastHit.collider.GetComponent<SurfaceClimbSettings>();
-                if (surfaceClimbSettings != null)
-                    __result = surfaceClimbSettings.slipPercentage;
-                    if (surfaceClimbSettings.Unclimbable == true)
-                        __result = 1;
+
+                if (surfaceClimbSettings?.Unclimbable ?? false)
+                {
+                    _result = 1;
+                }
+                else
+                {
+                    __result = surfaceClimbSettings?.slipPercentage ?? surface.slipPercentage;
+                }
 
                 return;
             }
