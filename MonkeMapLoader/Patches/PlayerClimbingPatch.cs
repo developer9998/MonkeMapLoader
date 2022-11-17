@@ -29,7 +29,6 @@ namespace VmodMonkeMapLoader.Patches
             if (meshCollider == null || meshCollider.sharedMesh == null)
             {
                 __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>();
-
                 __result = __instance.defaultSlideFactor;
                 return;
             }
