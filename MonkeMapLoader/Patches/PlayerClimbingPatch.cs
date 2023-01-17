@@ -15,7 +15,7 @@ namespace VmodMonkeMapLoader.Patches
             Surface surface = raycastHit.collider.GetComponent<Surface>();
             if (surface != null)
             {
-                __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>();
+                __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>() ?? __instance.currentOverride;
                 SurfaceClimbSettings surfaceClimbSettings = raycastHit.collider.GetComponent<SurfaceClimbSettings>();
 
                 if (surfaceClimbSettings?.Unclimbable ?? false) __result = 1;
@@ -28,15 +28,14 @@ namespace VmodMonkeMapLoader.Patches
             MeshCollider meshCollider = raycastHit.collider as MeshCollider;
             if (meshCollider == null || meshCollider.sharedMesh == null)
             {
-                __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>();
+                __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>() ?? __instance.currentOverride;
                 __result = __instance.defaultSlideFactor;
                 return;
             }
 
             if (!meshCollider.sharedMesh.isReadable)
             {
-                __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>();
-
+                __instance.currentOverride = __instance.GetComponent<GorillaSurfaceOverride>() ?? __instance.currentOverride;
                 __result = __instance.defaultSlideFactor;
                 return;
             }

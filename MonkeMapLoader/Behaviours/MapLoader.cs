@@ -385,7 +385,7 @@ namespace VmodMonkeMapLoader.Behaviours
                     Material oldMat = fakeSkybox.GetComponent<Renderer>().material; 
                     if (oldMat.HasProperty("_Tex"))
                     {
-                        oldMat.SetTexture("_Tex", Resources.Load<Texture2D>("objects/newsky/materials/day"));
+                        oldMat.SetTexture("_Tex", BetterDayNightManager.instance.dayNightSkyboxTextures[4]);
                         oldMat.SetColor("_Color", new Color(1, 1, 1, 1));
                     }
                 }
